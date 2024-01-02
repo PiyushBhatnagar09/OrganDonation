@@ -1,0 +1,59 @@
+.commn_login {
+    background-color: transparent;
+    margin-top: 60px;
+}
+
+.commn_login .initiate {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 70px;
+    font-weight: 600;
+    background-image: conic-gradient(#553c9a, #ee4b2b, #00c2cb);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+.commn_login .buttn:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(221, 25, 71, 0.921);
+    border-radius: 10rem;
+    z-index: -2;
+}
+
+.commn_login .buttn:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #ee4a66;
+    transition: all 0.3s;
+    border-radius: 10rem;
+    z-index: -1;
+}
+
+.commn_login .buttn:hover {
+    color: #fff;
+}
+
+.commn_login .buttn:hover:before {
+    width: 100%;
+}
+
+.commn_login .login_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.commn_login .text {
+    text-align: center;
+}

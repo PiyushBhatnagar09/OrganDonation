@@ -1,0 +1,31 @@
+.donor_id .alert {
+    animation: fadein 0.5s;
+}
+
+.donor_id .card {
+    animation: zoomin 0.5s;
+}
+
+
+
+
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomin {
+    from {
+        transform: scale(0.9);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}

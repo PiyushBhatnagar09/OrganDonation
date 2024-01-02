@@ -1,0 +1,16 @@
+/* Top.css */
+
+.login-nav {
+    display: flex;
+    align-items: center;
+}
+
+.buttn {
+    background-color: lightpink;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+/* Add any additional styling as needed */

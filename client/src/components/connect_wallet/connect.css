@@ -1,0 +1,21 @@
+.connect-wallet {
+    background-color: #f1a015;
+    color: white;
+    width: 150px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25%;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    margin-bottom: 5%;
+}
+
+.connect-wallet-loading {
+    cursor: none;
+}
