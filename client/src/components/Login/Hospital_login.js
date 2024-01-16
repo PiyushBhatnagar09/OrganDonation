@@ -21,7 +21,7 @@ class Hospital_login extends Component {
         const { username, password } = this.state;
         const user = { username, password };
 
-        axios.post("http://localhost:8000/api/hospitals/login", user)
+        axios.post("https://organ-donation-pb.onrender.com/api/hospitals/login", user)
             .then((res) => {
                 localStorage.setItem("isAuthenticated", "true");
                 window.localStorage.setItem("token", res.data.token);

@@ -29,7 +29,7 @@ class DonorSignUp extends Component {
         const { fname, lname, gender, city, phone, email, bloodgroup, organ, pass } = this.state;
         const donor = { fname, lname, gender, city, phone, email, bloodgroup, organ, pass };
         // console.log(donor);
-        axios.post("http://localhost:8000/api/donors/", donor)
+        axios.post("https://organ-donation-pb.onrender.com/api/donors/", donor)
             .then((res) => {
 
                 this.setState({ succMsg: "Donor Added Successfully" });

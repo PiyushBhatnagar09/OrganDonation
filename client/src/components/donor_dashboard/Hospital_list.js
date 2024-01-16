@@ -14,7 +14,7 @@ class HospitalList extends Component {
         this.setState({hospitals: []});
         const hospitals = []; // Reset the hospitals array
         // console.log(this.state.city);
-        axios.get(`http://localhost:8000/api/hospitals/${this.state.city}`)
+        axios.get(`https://organ-donation-pb.onrender.com/api/hospitals/${this.state.city}`)
             .then(res => {
                 for (let i = 0; i < res.data.length; i++) {
                     const hospital = {

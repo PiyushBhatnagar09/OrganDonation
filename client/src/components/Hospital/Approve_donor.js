@@ -44,7 +44,7 @@ class ApproveDonor extends Component {
                     if (accounts.length > 0) 
                     {
                         // User is logged in
-                        axios.get(`http://localhost:8000/api/donors/${email}`)
+                        axios.get(`https://organ-donation-pb.onrender.com/api/donors/${email}`)
                             .then(async (res) => {
                                 this.setState({ loading: true });
                                 // console.log(res.data);
