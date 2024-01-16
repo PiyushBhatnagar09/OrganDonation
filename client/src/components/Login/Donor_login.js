@@ -1,17 +1,21 @@
 import { Component } from "react";
 import Top2 from "../Navbar/Top2";
 import "./styles.css";
-import Web3 from "web3";
-import contract from "../../ethereum/web3";
+// import Web3 from "web3";
+// import contract from "../../ethereum/web3";
 import "react-bootstrap";
 import './card.css';
+import { ethers } from "ethers";
+import web3 from "web3";
+
+
 const sha3 = require('js-sha3');
 const { toChecksumAddress } = require('ethereumjs-util');
 
 class Donor_login extends Component {
 
     state = {
-        public_key: '',
+        aadhaarNumber: '',
         errMsg: '',
         ipfsHash: '',
         organ: '',
@@ -24,55 +28,64 @@ class Donor_login extends Component {
     onSubmit = async (event) => {
 
         event.preventDefault();
-
-        const key = this.state.public_key;
-        const hash = sha3.keccak256(key);
-
-        // Take the rightmost 160 bits of the hash value
-        const addressBytes = hash.slice(-20);
-
-        // Convert the address bytes to a hexadecimal string
-        const address = '0x' + Buffer.from(addressBytes).toString('hex');
-
-        // Use ethereumjs-util to convert the address to checksum format
-        const checksumAddress = toChecksumAddress(address);
-
-        if (typeof window.ethereum !== 'undefined') {
-            // Request the user's permission to connect to MetaMask
-            await window.ethereum.request({ method: 'eth_requestAccounts' });
-
-            // Use MetaMask as the web3 provider
-            const web3 = new Web3(window.ethereum);
-
-            // Get the user's account
-            const accounts = await web3.eth.getAccounts();
-
-            try {
-                contract.methods.getDonor(checksumAddress).call()
-                    .then(result => {
-                        const ipfsHash = result[0];
-                        const organ = result[1];
-                        const blood = result[2];
-                        const matchFound = result[3];
-                        const recipientId = result[4];
-                        this.setState({ ipfsHash: ipfsHash });
-                        this.setState({ organ: organ });
-                        this.setState({ bloodgroup: blood });
-                        this.setState({ matchfound: matchFound });
-                        this.setState({ matchid: recipientId });
-                    })
-                    .catch(err => console.log(err));
-
-            }
-            catch {
-                this.setState({ errMsg: "bad request" });
-            }
+        if(this.state.aadhaarNumber.length != 12)
+        {
+            alert("Enter Valid Aadhaar Number");
+            return;
         }
 
-        else {
-            alert('Please install MetaMask to use this dApp');
-        }
+        try {
+            if (window.ethereum) {
+                if (window.ethereum.isMetaMask) 
+                {
+                    // MetaMask is installed
+                    const accounts = await window.ethereum.request({ method: 'eth_accounts' });
 
+                    if (accounts.length > 0) 
+                    {
+                        try {
+                            const hash = sha3.keccak256(this.state.aadhaarNumber);
+                            const addressBytes = hash.slice(-40);
+                            const address = '0x' + addressBytes.toString('hex');
+                            const checksumAddress = web3.utils.toChecksumAddress(address);
+                            
+                            const {contract} = this.props;
+            
+                            //interacting with contract
+                            const transaction = await contract.getDonor(checksumAddress)
+                            .then(result => {
+                                // console.log(result);
+                                const organ = result[0];
+                                const blood = result[1];
+                                const matchFound = result[2];
+                                const recipientId = result[3];
+                                this.setState({ organ: organ });
+                                this.setState({ bloodgroup: blood });
+                                this.setState({ matchfound: matchFound });
+                                this.setState({ recipientId: recipientId });
+                            })
+                            .catch(err => console.log(err));
+                        }
+                        catch {
+                            this.setState({ errMsg: "bad request" });
+                        }
+                    } else {
+                        // User is not logged in
+                        alert('Login to MetaMask is required to use this dApp');
+                    }
+                    
+                } else {
+                    // MetaMask is not installed
+                    alert('Please install MetaMask to use this dApp');
+                }
+            } else {
+                // MetaMask is not installed
+                alert('Please install MetaMask to use this dApp');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            this.setState({ errMsg: 'Error. Please try again.' });
+        }
     }
 
     handleChange = (event) => {
@@ -95,7 +108,7 @@ class Donor_login extends Component {
                                         <span class="text-primary">Check Donor Info and Status</span>
                                     </h1>
                                     <p style={{ color: "hsl(217, 10%, 50.8%)" }}>
-                                        “I never used to pay that much attention to organ donation, but I’m tremendously glad for it: it turned out that I was one of the ones in need. I hope my donor’s family will be blessed a thousand times for their sacrifice.” –Karl Black
+                                    "I used to overlook the importance of organ donation, but now I am incredibly grateful for it. As it happens, I found myself in need, and I sincerely hope that my donor's family receives blessings a thousandfold for their selfless sacrifice." –Karl Black
                                     </p>
 
                                 </div>
@@ -105,16 +118,14 @@ class Donor_login extends Component {
                                         <div class="card-body py-5 px-md-5">
                                             <form onSubmit={this.onSubmit}>
                                                 <div class="form-outline mb-4">
-                                                    <input type="string" id="public_key" name="public_key" class="form-control" value={this.state.public_key} onChange={this.handleChange} required />
-                                                    <label class="form-label" for="public_key">Public Key</label>
+                                                <label class="form-label" for="aadhaarNumber">Aadhaar Number</label>
+                                                    <input type="string" id="aadhaarNumber" name="aadhaarNumber" class="form-control" value={this.state.aadhaarNumber} onChange={this.handleChange} required />
                                                 </div>
                                                 <button type="submit" class="btn btn-primary btn-block mb-4" onSubmit={this.onSubmit}>
-                                                    Sign up
+                                                    Check
                                                 </button>
                                                 {this.state.errMsg &&
                                                     <h3 className="error"> {this.state.errMsg} </h3>}
-
-
                                             </form>
                                         </div>
                                     </div>
@@ -125,14 +136,14 @@ class Donor_login extends Component {
                 </section>
 
                 {this.state.organ && this.state.organ.length >= 1 ?
-                    <div class="alert alert col-md donor_id" style={{ marginLeft: "40px", marginRight: "20px" }} role="alert">
+                    <div class="alert alert col-md donor_id mx-auto" style={{ marginLeft: "40px", marginRight: "40px" }} role="alert">
                         <h4 class="alert-heading" style={{ textAlign: "center", fontSize: "3em", color: "#2c3e50" }}>Donor Information </h4>
-                        <div class="card " style={{ maxWidth: "500px", marginLeft: "25vw" }}>
-                            <div class="card-body">
-                                <h3 class="card-subtitle mb-2 text-muted" style={{ color: "#34495e" }}>Organ Needed: {this.state.organ}</h3>
+                        <div class="card " style={{ maxWidth: "500px", margin: "auto" }}>
+                            <div class="card-body mx-auto">
+                                <h3 class="card-subtitle mb-2 text-muted" style={{ color: "#34495e" }}>Organ Donated: {this.state.organ}</h3>
                                 <h3 class="card-subtitle mb-2 text-muted" style={{ color: "#34495e" }}>Blood Group: {this.state.bloodgroup}</h3>
                                 <h3 class="card-subtitle mb-2 text-muted" style={{ color: "#34495e" }}>Match Found: {this.state.matchfound === true ? `Yes` : `No`}</h3>
-                                <h3 class="card-subtitle mb-2 text-muted" style={{ color: "#34495e" }}>Recipient ID: {this.state.matchfound === true ? `Recipient id: ${this.state.recipientId}` : ``}</h3>
+                                <h3 class="card-subtitle mb-2 text-muted" style={{ color: "#34495e" }}>Recipient ID: {this.state.matchfound === true ? `${this.state.recipientId}` : ``}</h3>
                             </div>
                         </div>
                     </div>

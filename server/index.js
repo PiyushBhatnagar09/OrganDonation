@@ -1,7 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./config/dbconnect');
-const port = 5002;
+// const db1 = require('./config/hospitals-seeder');
+
+const port = 8000;
 var cors = require("cors");
 var app = express();
 app.use(cors());
@@ -9,6 +11,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use('/uploads', express.static(__dirname+'/uploads'));
 const donorsRouter = require('./routes/api/donors');
 const hospitalsRouter = require('./routes/api/hospitals');
 app.use('/api/donors', donorsRouter);

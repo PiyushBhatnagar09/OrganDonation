@@ -1,7 +1,16 @@
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
-
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+
+body, html {
+    height: auto;
+}
+.area {
+    float: left;
+    background: #e2e2e2;
+    width: 100%;
+    height: 100%;
+}
 
 .fa-2x {
     font-size: 2em;
@@ -17,27 +26,23 @@
     font-size: 20px;
 }
 
+.main-menu {
+    border-right: 1px solid #e5e5e5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 60px;
+    overflow: hidden;
+    transition: width 0.05s linear;
+    transform: translateZ(0) scale(1, 1);
+    z-index: 1000;
+}
 
 .main-menu:hover,
 nav.main-menu.expanded {
     width: 250px;
     overflow: visible;
-}
-
-.main-menu {
-    background: #7d7c7c;
-    border-right: 1px solid #e5e5e5;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    height: 100%;
-    left: 0;
-    width: 60px;
-    overflow: hidden;
-    -webkit-transition: width .05s linear;
-    transition: width .05s linear;
-    -webkit-transform: translateZ(0) scale(1, 1);
-    z-index: 1000;
 }
 
 .main-menu>ul {
@@ -62,14 +67,11 @@ nav.main-menu.expanded {
     -webkit-transform: translateZ(0) scale(1, 1);
     -webkit-transition: all .1s linear;
     transition: all .1s linear;
-
 }
 
 .main-menu .nav-icon {
     position: relative;
     display: table-cell;
-    width: 60px;
-    height: 36px;
     text-align: center;
     vertical-align: middle;
     font-size: 18px;
@@ -89,7 +91,7 @@ nav.main-menu.expanded {
 .main-menu>ul.logout {
     position: absolute;
     left: 0;
-    bottom: 0;
+    /* bottom: 0; */
 }
 
 .no-touch .scrollable.hover {
@@ -147,3 +149,4 @@ nav.main-menu li.active>a,
     font-weight: 500;
     src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
 }
+

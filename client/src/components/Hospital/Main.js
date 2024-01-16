@@ -9,23 +9,8 @@ function Main_page() {
         <>
             <Hospital_nav />
             <Testimonials />
-
         </>
-
-
-
     );
-
-
-
-
-
-
-
-
-
-
-
 };
 
 

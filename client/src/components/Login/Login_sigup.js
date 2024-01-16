@@ -1,5 +1,4 @@
 import "./styles.css";
-import Front from "../front/Front";
 import Top2 from "../Navbar/Top2";
 import React, { Component } from 'react';
 import axios from 'axios';
@@ -29,8 +28,8 @@ class DonorSignUp extends Component {
 
         const { fname, lname, gender, city, phone, email, bloodgroup, organ, pass } = this.state;
         const donor = { fname, lname, gender, city, phone, email, bloodgroup, organ, pass };
-        console.log(donor);
-        axios.post("http://localhost:5002/api/donors/", donor)
+        // console.log(donor);
+        axios.post("http://localhost:8000/api/donors/", donor)
             .then((res) => {
 
                 this.setState({ succMsg: "Donor Added Successfully" });
@@ -127,9 +126,6 @@ class DonorSignUp extends Component {
                                                     <option value="Kidney">Kidney</option>
                                                 </select>
                                             </div>
-
-
-
 
                                             <input className="button" type="submit" value="Register" />
 

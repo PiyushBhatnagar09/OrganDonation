@@ -8,12 +8,12 @@ import Partner from "./Partner_with_us/Partner";
 
 
 
-const Home = () => {
+const Home = (props) => {
 
     return (
         <>
             <Top />
-            <Corous />
+            <Corous account={props.account}/>
             <About />
             <Success />
             <Partner />

@@ -32,11 +32,9 @@
     border: 2px solid transparent;
     border-radius: 50%;
     margin-right: 10px;
-    height: auto;
-    width: 75%;
+    height: 80%;
+    width: 120%;
     flex: 1;
-
-
 }
 
 .image_circle1 img {
@@ -67,18 +65,20 @@
 }
 
 .list-button {
-    display: flex;
-    flex-direction: row;
+    width: 100vw !important;
+    text-align: center !important;
+    padding: 5px;
 }
 
 .facts {
     font-family: 'Cursive';
     color: #0c2537;
+    font-size: 15px;
 }
 
 /* CSS */
 .button-71 {
-    margin-left: 200px;
+    margin-left: 100px;
     margin-right: 100px;
     margin-bottom: 20px;
     background-image: linear-gradient(109.6deg, rgba(156, 252, 248, 1) 11.2%, rgba(110, 123, 251, 1) 91.1%);

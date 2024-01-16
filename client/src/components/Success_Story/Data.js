@@ -1,44 +1,40 @@
 const Fooddata = [
     {
         id: 1,
-        rname: "A FINAL PICK 6 FOR ABRAHAM",
-        imgdata: "https://www.organdonor.gov/sites/default/files/styles/large/public/organ-donor/learn/life-stories/life-abraham.jpg?itok=1qyGV5rf",
-        somedata: "“I feel very proud of my son...The light was shining on him. He was a giver who gave to the very end.” – Malani",
+        rname: "A Final Pick 6 for Abraham",
+        imgdata: "https://www.organdonor.gov/sites/default/files/styles/large/public/organ-donor/learn/life-stories/life-story-adrianne.jpg?itok=oOEfFOSX",
+        somedata: "“I feel an immense sense of pride for my son...His light radiated until the very end. He epitomized the spirit of giving.” – Malani",
     },
     {
         id: 2,
-        rname: "Biology Class Inspires a Young Organ Donation Advocate",
-        imgdata: "https://www.organdonor.gov/sites/default/files/styles/large/public/organ-donor/learn/life-stories/life_abhishek.jpg?itok=7N53ie4h",
-        somedata: "Karma is a big deal. If you sign up as an organ donor, it would be a good deed.",
-
+        rname: "Biology Class Sparks Passion for Organ Donation Advocacy",
+        imgdata: "https://www.organdonor.gov/sites/default/files/styles/life_story_teaser/public/organ-donor/learn/life-stories/life-story-alan.jpg?itok=pnM16lsC",
+        somedata: "The concept of karma holds great significance. By becoming an organ donor, you contribute to a profound act of kindness.",
     },
     {
         id: 3,
-        rname: "The Real Heroes Are the Donor Families",
-        imgdata: "https://www.organdonor.gov/sites/default/files/styles/large/public/organ-donor/learn/life-stories/life-amelia.jpeg?itok=jLg9g0cr",
-        somedata: "The real heroes are the donor families. I look at it this way: there could have been two tragedies, but my donor family turned their tragedy into a blessing. I’m forever grateful. — Amelia",
-
+        rname: "True Heroes Reside in Donor Families",
+        imgdata: "https://www.organdonor.gov/sites/default/files/styles/life_story_teaser/public/organ-donor/learn/life-stories/life-alejandro.jpg?itok=ktoItdn8",
+        somedata: "The genuine heroes emerge from donor families. Viewing it from this perspective: there might have been two tragedies, but my donor family transformed their sorrow into a blessing. I remain forever grateful. — Amelia",
     },
     {
         id: 4,
-        rname: "Family Turns Tragedy into Blessing for Many",
-        imgdata: "https://www.organdonor.gov/sites/default/files/styles/large/public/organ-donor/learn/life-stories/life_anand.jpg?itok=I0vxarDW",
-        somedata: "No one knows when they may die, but when you go, you can leave a legacy.” — Tribhawan, Anand’s Father",
+        rname: "Transforming Tragedy into Blessings for Many Families",
+        imgdata: "https://www.organdonor.gov/sites/default/files/styles/life_story_teaser/public/organ-donor/learn/life-stories/life-america.jpg?itok=ws-JM78N",
+        somedata: "The unpredictability of life’s end is inevitable, but in departing, you have the opportunity to leave a lasting legacy.” — Tribhawan, Anand’s Father",
     },
     {
         id: 5,
-        rname: "A Donor Heart Brings a Promising New Life",
-        imgdata: "https://www.organdonor.gov/sites/default/files/styles/large/public/organ-donor/learn/life-stories/life-brittany.jpeg?itok=AvdPrGkt",
-        somedata: "I know that I am not just reaching my goals, but your goals as well.” — Brittany",
+        rname: "A Donor Heart Sparks a Promising New Chapter",
+        imgdata: "https://www.organdonor.gov/sites/default/files/styles/life_story_teaser/public/organ-donor/learn/life-stories/life_anand.jpg?itok=k7e8Ra9w",
+        somedata: "I acknowledge that my accomplishments extend beyond personal goals to include yours as well.” — Brittany",
     },
     {
         id: 6,
-        rname: "Sharing Life, Love and Kidneys",
-        imgdata: "https://www.organdonor.gov/sites/default/files/styles/large/public/organ-donor/learn/life-stories/life-cesar.jpg?itok=BVU4vZi3",
-        somedata: "“I had two kidneys. I gave away one...one healthy kidney...I did what I wanted to do and what I had to do as a husband.” – Cesar",
+        rname: "Embracing Life, Love, and Kidney Donation",
+        imgdata: "https://www.organdonor.gov/sites/default/files/styles/life_story_teaser/public/organ-donor/learn/life-stories/life-anne.jpeg?itok=uDRaK7uo",
+        somedata: "“Having two kidneys, I chose to give away one—a perfectly healthy kidney. I pursued what I desired and fulfilled my responsibilities as a husband.” – Cesar",
     },
-
-
 ];
 
 export default Fooddata;

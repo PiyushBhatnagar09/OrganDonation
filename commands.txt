@@ -1,0 +1,96 @@
+create a folder then inside it, do these step by step
+
+npm install --save-dev hardhat
+npx hardhat, go on clicking enter
+
+->write the contract in .sol file
+->write the deploy.js file
+
+npx hardhat run scripts/deploy.js
+(if you get error for insufficient funds then use sepolia faucet for more free ethers)
+
+->now you will get address of contract
+->0xBAA67c996824a8BF91E0c98D3BAECfF2D1120E5E
+->but our contract is not deployed anywhere, we did above only for knowledge
+->hardhat.config.js file appears in the same folder
+now change the hardhar.config.js so that we can deploy our blockchain on testnet using sepolia ethers
+
+//now for getting the url, private key, apikey for headhat :-
+go to alchemy->apps->create new app (select the sepolia network)
+->click on API key option on the right side of the network you created
+->here you get API key, HTTPS link i.e. URL
+->private key, you get from metamask from my account details
+
+npm install dotenv
+Store all these three information in .env file
+
+Also you need to add some free ethers to your sepolia network using :-
+https://sepoliafaucet.com/
+by providing your wallet address from metamask
+
+npm install create-react-app //no need
+npx create-react-app client
+->create server side also if you need it
+
+npx hardhat run --network sepolia scripts/deploy.js     
+then keep on pressing enter (y)
+0xBAA67c996824a8BF91E0c98D3BAECfF2D1120E5E  this is the new address !!
+Now, you get the contract of address !!
+This means our contract is successfully deployed on sepolia test network
+Also, to verify this, that our contract is deployed or created, we can goto
+https://sepolia.etherscan.io/address/0x49D51638C1066664D2cDA70955177c5397F8C53A
+
+METAMASK SECREY RECORVERY PHASE:
+reveal arctic steak tonight sure diary scorpion orchard boy author please bargain
+
+i am using sepolia faucet for getting sepolia ETH because goerli ETH wants min. if 0.001ETH in mainnet
+-> use your phone for giving permission to sepolia by giving fingerprint
+
+now i can check this on this site:
+https://sepolia.etherscan.io/address/0xB30506B3fFe7C97D972D113Ef1211c10F1fC8d9f
+
+to put contract address in App.js, goto
+https://sepolia.etherscan.io/
+
+then put your account id from metamask and get the contract address by doing :-
+go to contract creation and get 'to' field address from there
+
+NOTE: 'util' is removed from ethers, directly use all functions of util
+
+for deploying project :
+1. use netlify->new site->deploy manually
+2. do 'npm run build' to create build folder
+3. upload the 'build' folder and then deploy
+
+
+npm install bootstrap
+npm install trend... (not remember)
+npm install @fortawesome
+npm install react-router-hash-link
+npm install react-bootstrap
+npm install react-router-dom
+npm install @fontsource
+npm install axios
+npm install semantic-ui-react
+js-sha3
+ethereumjs-util
+npm install @trendmicro
+npm install stream
+npm install assert
+
+-> whatever error you face just do npm install ..... for it !!
+
+
+//MONGODB HOSPITAL ID, PASSWORD
+username
+"AIIMS Delhi"
+password
+"$2a$08$ppLlldjoaj0FB9MWg2m6ZuVV0J9K2wli6dis4fama1JiykBgxlVMm"
+
+METAMASK PASS:
+PBsenior34$
+
+NOTE:
+login to metamask is compulsary, i tried if user is not legged in then we can give alert
+but we can't popup metamask more than once in starting
+App_donor is correct now, use it for other components code now !!

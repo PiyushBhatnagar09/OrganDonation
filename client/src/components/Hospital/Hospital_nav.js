@@ -2,7 +2,7 @@ import React from "react";
 import 'react-bootstrap';
 import '@fortawesome/fontawesome-svg-core';
 import './main.css';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import { NavLink } from "react-router-dom";
@@ -20,7 +20,7 @@ function Hospital_nav() {
     return (
         <>
 
-            <SideNav
+            <SideNav className="side-nav"
             >
                 <SideNav.Toggle />
                 <SideNav.Nav defaultSelected="home">

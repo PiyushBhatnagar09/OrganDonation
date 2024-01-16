@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import "../corousal/corous.css";
 
-const Corous = () => {
+const Corous = (props) => {
 
     return (
 
         <>
+        <p
+            className="text-muted lead"
+            style={{ borderRadius: "15px", padding: "5px", marginTop: "10px", marginLeft: "5px", backgroundColor: "lightgreen", textAlign: "center", fontWeight: "bold" }}
+        >
+            <small>Meta Mask Connected Account - {props.account}</small>
+        </p>
             <div className="con">
                 <div className="container1" id="courous">
                     <div className="image">
-                        <img src="https://static.vecteezy.com/system/resources/previews/003/366/849/original/continuous-line-red-heart-hand-health-care-love-organ-donation-vector.jpg" alt="" />
+                        <img src="https://media.istockphoto.com/vectors/heart-in-his-hands-symbol-of-love-and-charity-illustration-in-hand-vector-id1047076438?k=6&m=1047076438&s=170667a&w=0&h=5ssPnTvv8BzZpngboxzuoWv64XnhNDnFxO9RfrYHCfk=" alt="heart-image" />
                     </div>
                     <div className="text">
                         <div className='heading'>
@@ -23,7 +29,7 @@ const Corous = () => {
                                 <span>about </span>
                                 <span>my </span>
                                 <span>donor </span>
-                                <span>:</span>
+                                <span>,</span>
                                 <span>no matter </span>
                                 <span>what </span>
                                 <span>they </span>

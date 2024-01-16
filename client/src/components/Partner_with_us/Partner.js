@@ -5,7 +5,8 @@ function Partner() {
         <>
             <>
                 <div id="footer-contact" class="bg-dark">
-                    <p class="text-underline">Made By PIYUSH BHATNAGAR</p>
+                    <p class="text-underline">Connect with- PIYUSH BHATNAGAR</p>
+                    <h5>+91 9315984683 &nbsp;&nbsp;&nbsp;&nbsp; pbpiyush09@gmail.com</h5>
                     <ul class="horizontal-list text-center social-icons">
                         <li>
                             <a href="https://www.linkedin.com/in/piyush-bhatnagar-b4b70425b/">
@@ -19,7 +20,7 @@ function Partner() {
                         </li>
                         <li>
                             <a href="https://github.com/PiyushBhatnagar09">
-                                <i class="fa fa-instagram"></i>
+                                <i class="fa fa-github"></i>
                             </a>
                         </li>
                     </ul>

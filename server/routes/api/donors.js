@@ -1,13 +1,16 @@
 const router = require('express').Router();
 let Donor = require('../../models/donor.model');
 
-router.route('/').get((req, res) => {
-    Donor.find()
+router.route('/').get( async (req, res) => {
+    // await console.log("here");
+    // console.log(req.body);
+    await Donor.find()
         .then(donors => res.json(donors))
         .catch(err => res.status(400).json('Error:' + err));
 });
 
 router.route('/:email').get((req, res) => {
+    // console.log(req.params.email);
     Donor.findOne({ email: req.params.email })
         .then(donor => res.json(donor))
         .catch(err => res.status(400).json('Error:' + err));
@@ -19,8 +22,9 @@ router.route('/:email').delete((req, res) => {
         .catch(err => res.status(400).json('Error:' + err));
 });
 
-router.route('/').post((req, res) => {
-    Donor.create({
+router.route('/').post(async (req, res) => {
+    // console.log("here");
+    await Donor.create({
         fname: req.body.fname,
         lname: req.body.lname,
         gender: req.body.gender,
@@ -32,9 +36,10 @@ router.route('/').post((req, res) => {
         pass: req.body.pass,
     })
         .then(() => res.json('Donor added Successfully'))
-        .catch(err => res.status(400).json('Email Registered'));
+        .catch(err => {
+            console.log(err);
+            res.status(400).json('Email Registered')}
+        );
 });
 
 module.exports = router;
-
-

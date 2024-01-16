@@ -38,7 +38,7 @@ img {
 }
 
 .navbar.fixed {
-    background-color: rgb(69, 161, 252);
+    /* background-color: rgb(69, 161, 252); */
     transition: .3 ease-in-out;
 
 }

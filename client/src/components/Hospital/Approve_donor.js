@@ -3,98 +3,95 @@ import { Grid, Form, Segment, Header, Button, Divider, Message } from 'semantic-
 import axios from 'axios';
 import 'semantic-ui-css/semantic.min.css';
 import Hospital_nav from './Hospital_nav';
-import contract from '../../ethereum/web3';
-import Web3 from 'web3';
+import {ethers} from 'ethers';
+import web3 from "web3";
+
 const sha3 = require('js-sha3');
-const { toChecksumAddress } = require('ethereumjs-util');
+// const { toChecksumAddress } = require('ethereumjs-util');
 
 class ApproveDonor extends Component {
     state = {
         fname: '',
         lname: '',
         email: '',
-        donorId: '',
+        aadhaarNumber: '',
         buffer: null,
-        ipfsHash: '',
-        EMRHash: '',
         loading: false,
         errMsg: '',
-        successMsg: ''
+        successMsg: '',
+        isRequestingAccounts: false
     }
-
 
     onChange = event => {
 
         this.setState({ [event.target.name]: event.target.value });
     }
 
-
-
-    onApprove = (event) => {
+    onApprove = async (event) => {
         event.preventDefault();
 
         this.setState({ errMsg: '', successMsg: '' });
 
-        const { fname, lname, email, buffer, donorId } = this.state;
+        const { fname, lname, email, buffer, aadhaarNumber } = this.state;
 
-        axios.get(`http://localhost:5002/api/donors/${email}`)
-            .then(async (res) => {
+        try {
+            if (window.ethereum) {
+                if (window.ethereum.isMetaMask) 
+                {
+                    // MetaMask is installed
+                    const accounts = await window.ethereum.request({ method: 'eth_accounts' });
 
-                this.setState({ loading: true });
+                    if (accounts.length > 0) 
+                    {
+                        // User is logged in
+                        axios.get(`http://localhost:8000/api/donors/${email}`)
+                            .then(async (res) => {
+                                this.setState({ loading: true });
+                                // console.log(res.data);
 
-                const { gender, city, phone, email, organ, bloodgroup } = res.data;
+                                const { gender, city, phone, email, organ, bloodgroup } = res.data;
 
-                const data = JSON.stringify({ fname, lname, gender, city, phone, email });
+                                const data = JSON.stringify({ fname, lname, gender, city, phone, email });
 
-                var result = "563jhjh"
-                this.setState({ ipfsHash: result });
-                result = "435353";
-                this.setState({ EMRHash: result });
-                if (typeof window.ethereum !== 'undefined') {
-                    // Request the user's permission to connect to MetaMask
-                    await window.ethereum.request({ method: 'eth_requestAccounts' });
+                                try {
+                                    const hash = sha3.keccak256(this.state.aadhaarNumber);
+                                    const addressBytes = hash.slice(-40);
+                                    const address = '0x' + addressBytes.toString('hex');
+                                    const checksumAddress = web3.utils.toChecksumAddress(address);
 
-                    // Use MetaMask as the web3 provider
-                    const web3 = new Web3(window.ethereum);
+                                    const amount = { value: ethers.parseEther("0.0000001") };
+                                    
+                                    const { contract } = this.props;
 
-                    // Get the user's account
-                    const accounts = await web3.eth.getAccounts();
-
-                    const account = accounts[0];
-                    //console.log(account);
-
-
-                    try {
-                        const hash = sha3.keccak256(this.state.donorId);
-
-                        // Take the rightmost 160 bits of the hash value
-                        const addressBytes = hash.slice(-20);
-
-                        // Convert the address bytes to a hexadecimal string
-                        const address = '0x' + Buffer.from(addressBytes).toString('hex');
-
-                        // Use ethereumjs-util to convert the address to checksum format
-                        const checksumAddress = toChecksumAddress(address);
-
-                        console.log(checksumAddress);
-
-                        const accounts = await web3.eth.getAccounts();
-                        await contract.methods.addDonor(checksumAddress, this.state.ipfsHash, this.state.EMRHash, organ, bloodgroup).send({
-                            from: accounts[0],
-                            gas: 1000000
-                        });
-                        this.setState({ successMsg: "Donor Approved !" })
+                                    const transaction = await contract.addDonor(checksumAddress, organ, bloodgroup, amount);
+                                    await transaction.wait();
+                                    console.log("Transaction is done !!");
+                                    this.setState({ successMsg: "Donor Approved !" });
+                                    // console.log(this.state.successMsg);
+                                }
+                                catch (err) {
+                                    this.setState({ errMsg: "Donor doesn't exist or already exists" });
+                                }
+                                this.setState({ loading: false });
+                            })
+                            .catch(err => this.setState({ errMsg: err.message }));
+                    } else {
+                        // User is not logged in
+                        alert('Login to MetaMask is required to use this dApp');
                     }
-                    catch (err) {
-                        this.setState({ errMsg: "Donor doesnt exist or already exists" })
-                    }
-                    this.setState({ loading: false });
-                }
-                else {
+                    
+                } else {
+                    // MetaMask is not installed
                     alert('Please install MetaMask to use this dApp');
                 }
-            }).catch(err => this.setState({ errMsg: err.message }));
-
+            } else {
+                // MetaMask is not installed
+                alert('Please install MetaMask to use this dApp');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            this.setState({ errMsg: 'Error. Please try again.' });
+        }
     }
 
     render() {
@@ -135,24 +132,21 @@ class ApproveDonor extends Component {
                                     required
                                 />
                                 <Form.Input
-                                    value={this.state.donorId}
+                                    value={this.state.aadhaarNumber}
                                     onChange={this.onChange}
-                                    name="donorId"
-                                    label='Donor Public Key'
+                                    name="aadhaarNumber"
+                                    label='Donor Aadhaar Number'
                                     placeholder='Donor Public Key'
                                     required
                                 />
-                                {/* <Form.Input
-                                    onChange={this.captureFile}
-                                    name="EMR"
-                                    label="EMR"
-                                    type="file"
-                                    required
-                                /> */}
                                 {
-                                    this.state.errMsg && this.state.errMsg.length > 0 ?
-                                        <Message success header="Sucess" content={this.state.successMsg} /> : <Message error header="Oops!!" content={this.state.errMsg} />
+                                    this.state.successMsg && this.state.successMsg.length > 0 ?
+                                        <Message positive header="Sucess " content={this.state.successMsg} /> : 
+                                        this.state.errMsg && this.state.errMsg.length>0 ?
+                                        <Message negative header="Oops " content={this.state.errMsg} /> :
+                                        <></>
                                 }
+                                
                                 <Segment basic textAlign={"center"}>
                                     <Button loading={this.state.loading} positive type='submit'>Approve</Button>
                                 </Segment>

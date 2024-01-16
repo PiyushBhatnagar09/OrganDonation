@@ -1,5 +1,6 @@
 {
   "name": "client",
+  "proxy": "http://localhost:8000",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,7 +15,9 @@
     "assert": "^2.1.0",
     "axios": "^1.6.3",
     "bootstrap": "^5.3.2",
+    "dotenv": "^16.3.1",
     "ethereumjs-util": "^7.1.5",
+    "ethers": "^6.9.2",
     "js-sha3": "^0.9.3",
     "jwt-decode": "^4.0.0",
     "react": "^18.2.0",

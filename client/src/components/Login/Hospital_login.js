@@ -5,9 +5,6 @@ import "./styles.css";
 
 import { Message } from 'semantic-ui-react';
 
-
-
-
 class Hospital_login extends Component {
 
     state = {
@@ -24,17 +21,14 @@ class Hospital_login extends Component {
         const { username, password } = this.state;
         const user = { username, password };
 
-        axios.post("http://localhost:5002/api/hospitals/login", user)
+        axios.post("http://localhost:8000/api/hospitals/login", user)
             .then((res) => {
                 localStorage.setItem("isAuthenticated", "true");
                 window.localStorage.setItem("token", res.data.token);
 
-
-
                 window.location = "/Main_page";
             })
             .catch(err => this.setState({ errMsg: err.message }));
-
     }
 
     onChange = event => {
@@ -52,7 +46,7 @@ class Hospital_login extends Component {
                                 <div class="col-lg-6 mb-5 mb-lg-0">
                                     <h1 class="my-5 display-3 fw-bold ls-tight">
 
-                                        <span class="text-primary">Signup For hospital Login</span>
+                                        <span class="text-primary">Login For hospitals</span>
                                     </h1>
                                     <p style={{ color: "hsl(217, 10%, 50.8%)" }}>
                                         "Organ donation is an act of extraordinary generosity, kindness and humanity. It is an opportunity for each of us to give the greatest gift of all - the gift of life. When we choose to become organ donors, we give the ultimate expression of love and compassion to our fellow human beings. We create a legacy of hope, of healing, and of new beginnings for those who are desperately waiting for a second chance at life." - Alexander T. Nguyen
@@ -75,7 +69,7 @@ class Hospital_login extends Component {
 
 
                                                 <button type="submit" class="btn btn-primary btn-block mb-4" onSubmit={this.onSubmit}>
-                                                    Sign up
+                                                    Login
                                                 </button>
 
                                             </form>

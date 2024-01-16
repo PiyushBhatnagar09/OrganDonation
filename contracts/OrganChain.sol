@@ -35,6 +35,12 @@ contract OrganChain {
         bool exist;
     }
 
+    address payable owner;
+
+    constructor() {
+        owner = payable(msg.sender);
+    }
+
     //creating maps of {address, struct}
     mapping(address => Recipient) Recipients;
     mapping(address => Donor) Donors;
@@ -61,7 +67,9 @@ contract OrganChain {
         address _donor_addr,
         string memory _organ,
         string memory _bloodgroup
-    ) public checkDonorExist(_donor_addr) checkRecipientExist(_donor_addr) {
+    ) public payable checkDonorExist(_donor_addr) checkRecipientExist(_donor_addr) {
+        require(msg.value > 0, "Please pay greater than 0 ether");
+        owner.transfer(msg.value);
         Donor memory newDonor = Donor({
             donorId: _donor_addr,
             recipientId: address(0x0), //default id to show no recipient found currently during adding this donor
@@ -93,10 +101,12 @@ contract OrganChain {
         string memory _organ,
         string memory _bloodgroup
     )
-        public
+        public payable
         checkRecipientExist(_recipient_addr)
         checkDonorExist(_recipient_addr)
     {
+        require(msg.value > 0, "Please pay greater than 0 ether");
+        owner.transfer(msg.value);
         Recipient memory newRecipient = Recipient({
             recipientId: _recipient_addr,
             hospitalId: _hospital_addr,
@@ -168,7 +178,9 @@ contract OrganChain {
     }
 
     //finding match forthe recipients from donor array
-    function transplantMatch(address _recipient_addr) public {
+    function transplantMatch(address _recipient_addr) public payable {
+        require(msg.value > 0, "Please pay greater than 0 ether");
+        owner.transfer(msg.value);
         for (uint i = 0; i < donor_arr.length; i++) {
             //LEARN: we cannot directly compare two string storage references of ethereum smart contracts, so we need to compare the actual values stored at these locations using these functions
             if (

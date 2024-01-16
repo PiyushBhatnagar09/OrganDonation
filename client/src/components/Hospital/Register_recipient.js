@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import { Form, Button, Grid, Segment, Header, Divider, Message } from 'semantic-ui-react';
 import Hospital_nav from './Hospital_nav';
 import {jwtDecode} from 'jwt-decode';
-
-import contract from '../../ethereum/web3';
-import Web3 from 'web3';
+import {ethers} from 'ethers';
+import web3 from "web3";
 
 const sha3 = require('js-sha3');
-const { toChecksumAddress } = require('ethereumjs-util');
+// const { toChecksumAddress } = require('ethereumjs-util');
 
 
 class RegisterRecipient extends Component {
@@ -21,9 +20,7 @@ class RegisterRecipient extends Component {
         bloodgroup: 'A+',
         organ: 'Eyes',
         buffer: null,
-        ipfsHash: '12345',
-        publicKey: '',
-        EMRHash: '12345',
+        aadhaarNumber: '',
         loading: false,
         errMsg: '',
         successMsg: ''
@@ -34,73 +31,60 @@ class RegisterRecipient extends Component {
 
         this.setState({ loading: true, errMsg: '', successMsg: '' });
 
-        const { fname, lname, gender, city, phone, email, bloodgroup, organ, buffer, publicKey } = this.state;
-        //console.log(fname);
+        const { fname, lname, gender, city, phone, email, bloodgroup, organ, buffer, aadhaarNumber } = this.state;
 
-        if (typeof window.ethereum !== 'undefined') {
-            // Request the user's permission to connect to MetaMask
-            await window.ethereum.request({ method: 'eth_requestAccounts' });
+        try {
+            if (window.ethereum) {
+                if (window.ethereum.isMetaMask) 
+                {
+                    // MetaMask is installed
+                    const accounts = await window.ethereum.request({ method: 'eth_accounts' });
 
-            // Use MetaMask as the web3 provider
-            const web3 = new Web3(window.ethereum);
+                    if (accounts.length > 0) 
+                    {
+                        try {
+                            const data = JSON.stringify({ fname, lname, gender, city, phone, email });
 
-            // Get the user's account
-            const accounts = await web3.eth.getAccounts();
+                            const hash = sha3.keccak256(this.state.aadhaarNumber);
+                            const addressBytes = hash.slice(-40);
+                            const address = '0x' + addressBytes.toString('hex');
+                            const checksumAddress = web3.utils.toChecksumAddress(address);
 
-            const account = accounts[0];
-            //console.log(account);
+                            const amount = { value: ethers.parseEther("0.0000001") };
+                            
+                            const { contract } = this.props;
+                            // console.log(contract);
 
+                            const token = localStorage.getItem('token');
+                            const decodedToken = jwtDecode(token);
+                            // console.log(decodedToken);
+                            const hospitalid = decodedToken.key;
 
-            try {
-                const data = JSON.stringify({ fname, lname, gender, city, phone, email });
-
-                const buf = Buffer.from(data);
-
-                var result = "Qm1d4";
-
-                var result1 = "Qm1d";
-                this.setState({ EMRHash: result });
-
-                const hash = sha3.keccak256(this.state.publicKey);
-
-                // Take the rightmost 160 bits of the hash value
-                const addressBytes = hash.slice(-20);
-
-                // Convert the address bytes to a hexadecimal string
-                const address = '0x' + Buffer.from(addressBytes).toString('hex');
-
-                // Use ethereumjs-util to convert the address to checksum format
-                const checksumAddress = toChecksumAddress(address);
-
-                const token = localStorage.getItem('token');
-                const decodedToken = jwtDecode(token);
-                console.log(decodedToken);
-                const hospitalid = decodedToken.key;
-
-
-                await contract.methods.addRecipient(checksumAddress, hospitalid, result, result1, organ, bloodgroup).send({
-                    from: account,
-                    gas: 1000000
-                });
-                this.setState({ successMsg: "Repient Registered Successfully!" })
-                this.setState({ loading: false });
-
-                // Use the account for your contract interactions
-                // ...
-
-            }
-            catch (err) {
-                this.setState({ errMsg: "Cannot send data already present user" });
-                this.setState({ loading: false });
-            }
-
-            // Use the account for your contract interactions
-            // ...
+                            // console.log(checksumAddress, hospitalid, organ, bloodgroup);
+                            
+                            //interacting with contract
+                            const transaction = await contract.addRecipient(checksumAddress, hospitalid, organ, bloodgroup, amount);
+                            await transaction.wait();
+                            console.log("Transaction is done");
+                            this.setState({ successMsg: "Recipient Registered Successfully!" })
+                            this.setState({ loading: false });
+                        }
+                        catch (err) {
+                            console.log(err);
+                            this.setState({ errMsg: "Cannot send data already present user" });
+                            this.setState({ loading: false });
+                        }
+                    }
+                }
         } else {
             // MetaMask is not installed, show an error message
             alert('Please install MetaMask to use this dApp');
         }
     }
+    catch(err) {
+
+    }
+}
 
 
     captureFile = event => {
@@ -226,13 +210,23 @@ class RegisterRecipient extends Component {
                                         <option value='Pancreas'>Pancreas</option>
                                     </Form.Field>
                                 </Form.Group>
+                                <Form.Group widths={1}>
+                                    <Form.Input
+                                        value={this.state.aadhaarNumber}
+                                        onChange={this.onChange}
+                                        name="aadhaarNumber"
+                                        label='aadhar number'
+                                        placeholder='aadhar number'
+                                        required
+                                    />
+                                    
+                                </Form.Group>
 
 
-                                <Message error header="Oops!" content={this.state.errMsg} />
-                                <Message success header="Success" content={this.state.successMsg} />
+                                <Message error header="Oops " content={this.state.errMsg} />
+                                <Message success header="Success " content={this.state.successMsg} />
                                 <Segment basic textAlign={"center"}>
                                     <Button loading={this.state.loading} positive type='submit'>Register</Button>
-
                                 </Segment>
                             </Form>
                         </Segment>

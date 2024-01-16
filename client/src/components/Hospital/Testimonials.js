@@ -24,21 +24,21 @@ const Testimonials = () => {
   const testimonialsData = [
     {
       id: 1,
-      name: 'John Doe',
+      name: 'Max Harper',
       designation: 'Patient',
       testimonial: 'I received exceptional care and support during my stay at the hospital. The medical staff went above and beyond to ensure my comfort and recovery. I am grateful for their expertise and compassion.',
       photo: 'https://www.realmenrealstyle.com/wp-content/uploads/2021/06/AOC.jpg'
     },
     {
       id: 2,
-      name: 'Jane Smith',
+      name: 'Olivia Martinez',
       designation: 'Family Member',
       testimonial: 'Our experience with the hospital was outstanding. The doctors and nurses displayed professionalism and empathy throughout our loved one\'s treatment. They kept us well-informed and provided the highest quality of care.',
       photo: 'https://yt3.googleusercontent.com/lUVJnWd4XoN5QUZWzK_QiCdRNdEOuzfNXZg_gYuDOcUfjy9dcafqSl0lRU6pYuAnovLx9X4fyZI=s900-c-k-c0x00ffffff-no-rj',
     },
     {
       id: 3,
-      name: 'Clara Luna',
+      name: 'Elena Cruz',
       designation: 'Heart Transplant Doctor',
       testimonial: 'Working with the hospital\'s dedicated team has been a privilege. Their expertise in organ transplantation is unmatched, delivering successful outcomes. Witnessing the life-saving impact they make is truly inspiring.',
       photo: 'https://cdn.shopify.com/s/files/1/0636/7746/4821/articles/zariin-real-women-swati-bhargava.jpg?v=1666232248',

@@ -9,8 +9,20 @@
     background-color: lightpink;
     color: white;
     padding: 8px 16px;
-    border-radius: 5px;
     text-decoration: none;
+    text-align: center;
 }
 
 /* Add any additional styling as needed */
+
+.fixed-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Adjust the z-index as needed */
+    /* Add any other styles for the fixed navbar */
+}
+
+.navBackground {
+    background-color: rgba(164, 163, 163, 0.76);
+}
