@@ -60,18 +60,18 @@ class RenderList extends Component {
                     }
                     else {
                         // User is not logged in
-                        alert('Login to MetaMask is required to use this dApp');
+                        alert('Login to MetaMask is required to use this Website');
                     }
                     this.setState({ loading: false });
                 }
                 else {
                     // MetaMask is not installed
-                    alert('Please install MetaMask to use this dApp');
+                    alert('Please install MetaMask to use this Website');
                 }
             }
             else {
                 // MetaMask is not installed
-                alert('Please install MetaMask to use this dApp');
+                alert('Please install MetaMask to use this Website');
             }
         }
         catch (error) {

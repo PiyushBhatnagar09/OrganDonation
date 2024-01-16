@@ -77,16 +77,16 @@ class ApproveDonor extends Component {
                             .catch(err => this.setState({ errMsg: err.message }));
                     } else {
                         // User is not logged in
-                        alert('Login to MetaMask is required to use this dApp');
+                        alert('Login to MetaMask is required to use this Website');
                     }
                     
                 } else {
                     // MetaMask is not installed
-                    alert('Please install MetaMask to use this dApp');
+                    alert('Please install MetaMask to use this Website');
                 }
             } else {
                 // MetaMask is not installed
-                alert('Please install MetaMask to use this dApp');
+                alert('Please install MetaMask to use this Website');
             }
         } catch (error) {
             console.error('Error:', error);

@@ -78,7 +78,7 @@ class RegisterRecipient extends Component {
                 }
         } else {
             // MetaMask is not installed, show an error message
-            alert('Please install MetaMask to use this dApp');
+            alert('Please install MetaMask to use this Website');
         }
     }
     catch(err) {

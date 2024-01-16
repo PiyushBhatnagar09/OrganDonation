@@ -57,10 +57,19 @@ go to contract creation and get 'to' field address from there
 
 NOTE: 'util' is removed from ethers, directly use all functions of util
 
+
 for deploying project :
-1. use netlify->new site->deploy manually
-2. do 'npm run build' to create build folder
-3. upload the 'build' folder and then deploy
+->For backend, make a repository and push code files in it, don't create any folder 'server', just upload the files which are inside it
+then use 'render.com' to deploy backend
+->replace the backend link i.e. 'http://localhost:8000' from all files of client folder and replace it to deployed website link
+->do 'npm run build' in client folder and use netlify to deploy frontend
+
+Links to refer for deployment :
+-> https://www.youtube.com/watch?v=CdUDHj2i01Y&t=7s
+-> https://www.youtube.com/watch?v=AslMb_MQzDo
+
+->also for using routes on netlify, you need to make a file '_redirects' in public folder and inside it write :
+/*    /index.html   200
 
 
 npm install bootstrap
@@ -85,10 +94,10 @@ npm install assert
 username
 "AIIMS Delhi"
 password
-"$2a$08$ppLlldjoaj0FB9MWg2m6ZuVV0J9K2wli6dis4fama1JiykBgxlVMm"
+"1234"
 
-METAMASK PASS:
-PBsenior34$
+METAMASK PASS: (i know how to do)
+4P42B42s424e424n424i424o424r42434244424$424
 
 NOTE:
 login to metamask is compulsary, i tried if user is not legged in then we can give alert
