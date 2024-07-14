@@ -22,7 +22,6 @@ class TransplantMatch extends Component {
         const decodedToken = jwtDecode(token);
 
         const hospitalId = decodedToken.key;
-        // console.log(hospitalId);
         
         try {
             if (window.ethereum) {
@@ -36,16 +35,12 @@ class TransplantMatch extends Component {
                         // User is logged in
                         const { contract } = this.props;
                         
-                        // console.log(contract);
                         const result = await contract.getRecipientCount(hospitalId);
-                        // const result1 = await contract.getRecipientCount(hospitalId);
                         var recipient_arr = [];
-                        // console.log('result: ', result, result[0]);
 
                         for (let i = 0; i < result; i++) {
 
                             const recipient = await contract.getRecipientDetail(hospitalId, i);
-                            // console.log("here", recipient, recipient[0], recipient[1]);
                             if (recipient[1] === "") {
                                 continue;
                             }
@@ -66,7 +61,6 @@ class TransplantMatch extends Component {
                             });
                         }
                         this.setState({ recipient_arr });
-                        // console.log('final', recipient_arr);
                     }
                     else {
                         // User is not logged in

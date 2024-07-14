@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Card, Segment, Header, Divider, Grid, Form, Button } from 'semantic-ui-react';
+import { Card, Segment, Header, Divider, Grid, Form, Button, Icon, Image } from 'semantic-ui-react';
 import Top2 from '../Navbar/Top2';
 
 class HospitalList extends Component {
@@ -13,8 +13,7 @@ class HospitalList extends Component {
         event.preventDefault();
         this.setState({hospitals: []});
         const hospitals = []; // Reset the hospitals array
-        // console.log(this.state.city);
-        axios.get(`https://organ-donation-pb.onrender.com/api/hospitals/${this.state.city}`)
+        axios.get(`${process.env.REACT_APP_API_URL}/api/hospitals/${this.state.city}`)
             .then(res => {
                 for (let i = 0; i < res.data.length; i++) {
                     const hospital = {
@@ -25,22 +24,27 @@ class HospitalList extends Component {
                     }
                     hospitals.push(hospital)
                 }
-                // console.log(hospitals);
                 this.setState({ hospitals });
             })
             .catch(err => console.log("Error:" + err));
     }
 
     renderHospitals() {
-        const hospitals = this.state.hospitals.map(hospital => {
-            return {
-                image: hospital.img,
-                header: hospital.name,
-                meta: hospital.contact,
-                description: hospital.address
-            };
-        });
-        return <Card.Group items={hospitals} centered />;
+        return (
+            <Card.Group itemsPerRow={3} stackable={true}>
+                {this.state.hospitals.map(hospital => (
+                    <Card key={hospital._id} className="fluid">
+                        <Image size="medium" src={hospital.img} wrapped ui={false} />
+                        <Card.Content>
+                        <Card.Header>{hospital.name}</Card.Header>
+                        </Card.Content>
+                        <Card.Content>
+                        {hospital.address}
+                        </Card.Content>
+                    </Card>
+                ))}
+            </Card.Group>
+        )
     }
 
     onChange = event => {

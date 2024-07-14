@@ -42,6 +42,7 @@ const Top = () => {
                         <Link to="#about" className='trans nav-link nav-link-ltr' smooth>About Us</Link>
                         <Link to="#success" className='trans nav-link nav-link-ltr' smooth>Success Stories</Link>
                         <Link to="#footer-contact" className='trans nav-link nav-link-ltr'>Partner with us</Link>
+                        <Link to="#donate-money" className='trans nav-link nav-link-ltr'>DONATE MONEY</Link>
                     </Nav>
                     <Nav className="login-nav">
                         <Link

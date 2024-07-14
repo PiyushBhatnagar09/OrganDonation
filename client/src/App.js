@@ -59,10 +59,8 @@ function App() {
             contractABI,
             signer
           );
-          console.log(signer, provider, contract);
           setAccount(account);
           setState({ provider, signer, contract });
-          console.log("hyey",state);
         } else {
           alert("Please install metamask");
         }
@@ -73,7 +71,6 @@ function App() {
     connectWallet();
   }, []);
 
-  console.log(state);
   return (
     <>
     <Router>
@@ -103,16 +100,6 @@ function App() {
             )
           }
         />
-        {/* <Route
-          path="/Patient_list"
-          element={
-            window.localStorage.getItem('isAuthenticated') ? (
-              <PatientRecord />
-            ) : (
-              <Navigate to="/Hospital_login" />
-            )
-          }
-        /> */}
         <Route
           path="/RegisterRecipient"
           element={

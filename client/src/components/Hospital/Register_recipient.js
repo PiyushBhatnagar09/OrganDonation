@@ -53,19 +53,15 @@ class RegisterRecipient extends Component {
                             const amount = { value: ethers.parseEther("0.0000001") };
                             
                             const { contract } = this.props;
-                            // console.log(contract);
 
                             const token = localStorage.getItem('token');
                             const decodedToken = jwtDecode(token);
-                            // console.log(decodedToken);
                             const hospitalid = decodedToken.key;
 
-                            // console.log(checksumAddress, hospitalid, organ, bloodgroup);
                             
                             //interacting with contract
                             const transaction = await contract.addRecipient(checksumAddress, hospitalid, organ, bloodgroup, amount);
                             await transaction.wait();
-                            console.log("Transaction is done");
                             this.setState({ successMsg: "Recipient Registered Successfully!" })
                             this.setState({ loading: false });
                         }
@@ -97,7 +93,6 @@ class RegisterRecipient extends Component {
     }
 
     onChange = event => {
-        //console.log(event.target.value);
         this.setState({ [event.target.name]: event.target.value });
     }
 

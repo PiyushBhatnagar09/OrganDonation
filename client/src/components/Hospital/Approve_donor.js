@@ -44,10 +44,9 @@ class ApproveDonor extends Component {
                     if (accounts.length > 0) 
                     {
                         // User is logged in
-                        axios.get(`https://organ-donation-pb.onrender.com/api/donors/${email}`)
+                        axios.get(`${process.env.REACT_APP_API_URL}/api/donors/${email}`)
                             .then(async (res) => {
                                 this.setState({ loading: true });
-                                // console.log(res.data);
 
                                 const { gender, city, phone, email, organ, bloodgroup } = res.data;
 
@@ -65,9 +64,7 @@ class ApproveDonor extends Component {
 
                                     const transaction = await contract.addDonor(checksumAddress, organ, bloodgroup, amount);
                                     await transaction.wait();
-                                    console.log("Transaction is done !!");
                                     this.setState({ successMsg: "Donor Approved !" });
-                                    // console.log(this.state.successMsg);
                                 }
                                 catch (err) {
                                     this.setState({ errMsg: "Donor doesn't exist or already exists" });

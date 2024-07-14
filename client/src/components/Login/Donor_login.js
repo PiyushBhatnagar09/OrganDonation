@@ -54,7 +54,6 @@ class Donor_login extends Component {
                             //interacting with contract
                             const transaction = await contract.getDonor(checksumAddress)
                             .then(result => {
-                                // console.log(result);
                                 const organ = result[0];
                                 const blood = result[1];
                                 const matchFound = result[2];

@@ -36,7 +36,6 @@ class RenderList extends Component {
                         await transaction.wait();
 
                         var result = await contract.isMatchFound(this.props.recipient.recipientId);
-                        // console.log("torr", result);
                         if (result === "false") {
                             throw Object.assign(
                                 new Error("Match Not Found!")
@@ -45,10 +44,8 @@ class RenderList extends Component {
                         else {
                             var donorId;
                             var donorId = await contract.getMatchedDonor(this.props.recipient.recipientId);
-                            // console.log(donorId);
 
                             const donor = await contract.getDonor(donorId);
-                            // console.log(donor);
                             this.setState({ donorId: donorId, organ: donor[0], bloodgroup: donor[1] });
 
                             const res = (donor[0]);
@@ -56,7 +53,6 @@ class RenderList extends Component {
                                 donorFound: true
                             })
                         }
-                        console.log("Transaction is done");
                     }
                     else {
                         // User is not logged in

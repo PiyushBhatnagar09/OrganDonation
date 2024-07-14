@@ -5,7 +5,7 @@ import Corous from "./corousal/Corous";
 import About from "./About/About";
 import Success from "./Success_Story/Success";
 import Partner from "./Partner_with_us/Partner";
-
+import DonateMoney from "./Donate_money/DonateMoney";
 
 
 const Home = (props) => {
@@ -16,6 +16,7 @@ const Home = (props) => {
             <Corous account={props.account}/>
             <About />
             <Success />
+            <DonateMoney/>
             <Partner />
         </>
     );
