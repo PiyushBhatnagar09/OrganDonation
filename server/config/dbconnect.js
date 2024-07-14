@@ -1,7 +1,8 @@
 //connecting to database using mongoose
 const mongoose= require('mongoose');
 
-mongoose.connect(`mongodb+srv://pbpiyush34:piyushbhat@cluster0.sreyp4a.mongodb.net/test?retryWrites=true&w=majority`);
+mongoose.connect(`mongodb+srv://pbpiyush34:piyushbhat@cluster0.sreyp4a.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`);
+// mongoose.connect(`mongodb://localhost:27017/OrganDonation`);
 
 //making connection with database
 const db= mongoose.connection;

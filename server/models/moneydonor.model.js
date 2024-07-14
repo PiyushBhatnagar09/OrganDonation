@@ -4,4 +4,4 @@ const moneydonorSchema = new mongoose.Schema({
   name: String,
 });
 
-module.exports = mongoose.model("Donor", moneydonorSchema);
+module.exports = mongoose.model("moneydonor", moneydonorSchema);

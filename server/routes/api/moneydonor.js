@@ -15,7 +15,7 @@ async function saveDonorNameToDatabase(donorName) {
 
 router.get('/list', async (req, res) => {
     try {
-      const donors = await Donor.find({}, 'name'); // Retrieve all donor names from the database
+      const donors = await moneyDonor.find({}, 'name'); // Retrieve all donor names from the database
       res.json({ donors: donors.map(donor => donor.name) });
     } catch (error) {
       console.error("Error fetching donor names:", error);
@@ -24,7 +24,6 @@ router.get('/list', async (req, res) => {
   });
 
 router.route('/order').post(async (req, res) => {
-    // console.log("yo000")
   try {
     const razorpay = new Razorpay({
       key_id: 'rzp_test_o8r3UGNOwqJGNM',
@@ -49,8 +48,6 @@ router.route('/order').post(async (req, res) => {
 });
 
 router.route('/order/validate').post(async (req, res) => {
-    // console.log("yo")
-
   const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
     req.body;
 
