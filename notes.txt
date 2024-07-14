@@ -1,3 +1,8 @@
+While Pushing code to github, always replace connection String from Compass to Atlas 
+Atlas string works in local if i do:
+->windows->view network connection-> wifi properties-> ipv4 properties-> below portion : 1.1.1.1 and 8.8.8.8 then it worked.
+
+
 create a folder then inside it, do these step by step
 
 npm install --save-dev hardhat
@@ -63,6 +68,7 @@ for deploying project :
 then use 'render.com' to deploy backend
 ->replace the backend link i.e. 'http://localhost:8000' from all files of client folder and replace it to deployed website link
 ->do 'npm run build' in client folder and use netlify to deploy frontend
+IMP: then go to add new site on netlify overview then upload the build folder there
 
 Links to refer for deployment :
 -> https://www.youtube.com/watch?v=CdUDHj2i01Y&t=7s
