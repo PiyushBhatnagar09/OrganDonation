@@ -1,7 +1,7 @@
 const router = require('express').Router();
 let Donor = require('../../models/donor.model');
 
-router.route('/').get( async (req, res) => {
+router.route('/').get(async (req, res) => {
     await Donor.find({
         approved: true,
         exist: true,
@@ -13,6 +13,15 @@ router.route('/').get( async (req, res) => {
 
 router.route('/:email').get((req, res) => {
     Donor.findOne({ email: req.params.email })
+        .then(donor => res.json(donor))
+        .catch(err => res.status(400).json('Error:' + err));
+});
+
+router.route('/donor_info').post((req, res) => {
+    console.log("heyyy")
+    Donor.findOne({
+        donor_addr: req.body.donor_addr
+    })
         .then(donor => res.json(donor))
         .catch(err => res.status(400).json('Error:' + err));
 });
@@ -35,11 +44,12 @@ router.route('/').post(async (req, res) => {
         organ: req.body.organ,
         pass: req.body.pass,
     })
-    .then(() => res.json('Donor added Successfully'))
-    .catch(err => {
-        console.log(err);
-        res.status(400).json('Email already registered')}
-    );
+        .then(() => res.json('Donor added Successfully'))
+        .catch(err => {
+            console.log(err);
+            res.status(400).json('Email already registered')
+        }
+        );
 });
 
 router.route('/approve_donor').post(async (req, res) => {
@@ -62,7 +72,7 @@ router.route('/approve_donor').post(async (req, res) => {
 
         res.json('Donor updated successfully');
     }
-    catch(err) {
+    catch (err) {
         console.log(err);
         res.status(500).json('An error occurred while updating the donor');
     }

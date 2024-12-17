@@ -32,6 +32,7 @@ function Product() {
         layout: "topRight", // Position on the screen
         timeout: 2000,
       }).show();
+      
       console.error("Error fetching donor names:", error);
     }
   };

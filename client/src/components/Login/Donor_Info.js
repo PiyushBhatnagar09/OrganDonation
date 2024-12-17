@@ -18,7 +18,6 @@ class Donor_login extends Component {
         organ: '',
         bloodgroup: '',
         matchfound: false,
-        matchid: '',
     }
 
     onSubmit = async (event) => {
@@ -36,95 +35,57 @@ class Donor_login extends Component {
             return;
         }
 
-        try {
-            if (window.ethereum) {
-                if (window.ethereum.isMetaMask) 
-                {
-                    // MetaMask is installed
-                    const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+        try {            
+            const hash = sha3.keccak256(this.state.aadhaarNumber);
+            const addressBytes = hash.slice(-40);
+            const address = '0x' + addressBytes.toString('hex');
+            const checksumAddress = web3.utils.toChecksumAddress(address);
 
-                    if (accounts.length > 0) 
-                    {
-                        try {
-                            const hash = sha3.keccak256(this.state.aadhaarNumber);
-                            const addressBytes = hash.slice(-40);
-                            const address = '0x' + addressBytes.toString('hex');
-                            const checksumAddress = web3.utils.toChecksumAddress(address);
-                            
-                            const {contract} = this.props;
-            
-                            //interacting with contract
-                            const transaction = await contract.getDonor(checksumAddress)
-                            .then(result => {
-                                const organ = result[0];
-                                const blood = result[1];
-                                const matchFound = result[2];
-                                const recipientId = result[3];
-                                this.setState({ organ: organ });
-                                this.setState({ bloodgroup: blood });
-                                this.setState({ matchfound: matchFound });
-                                this.setState({ recipientId: recipientId });
-                            })
-                            .catch((err) => {
-                                new Noty({
-                                    theme: 'sunset',
-                                    text: "Donor doesn't exist",
-                                    type: "error", // 'alert', 'success', 'error', 'warning', 'info'
-                                    layout: "topRight", // Position on the screen
-                                    timeout: 2000,
-                                }).show();
-                                console.error('Error: ', err);
-                            });
-                        }
-                        catch {
-                            new Noty({
-                                theme: 'sunset',
-                                text: "Bad Request",
-                                type: "error", // 'alert', 'success', 'error', 'warning', 'info'
-                                layout: "topRight", // Position on the screen
-                                timeout: 2000,
-                            }).show();
-                        }
-                    } else {
-                        // User is not logged in
-                        new Noty({
-                            theme: 'sunset',
-                            text: "Please Login to MetaMask",
-                            type: "error", // 'alert', 'success', 'error', 'warning', 'info'
-                            layout: "topRight", // Position on the screen
-                            timeout: 2000,
-                        }).show();
-                    }
-                    
-                } else {
-                    // MetaMask is not installed
-                    new Noty({
-                        theme: 'sunset',
-                        text: "Please Login to MetaMask",
-                        type: "error", // 'alert', 'success', 'error', 'warning', 'info'
-                        layout: "topRight", // Position on the screen
-                        timeout: 2000,
-                    }).show();
-                }
-            } else {
-                // MetaMask is not installed
+            const data1 = JSON.stringify({
+                donor_addr: checksumAddress
+            });
+                        
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/donors/donor_info`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: data1,
+            });                   
+
+            if (!response.ok) {
                 new Noty({
                     theme: 'sunset',
-                    text: "Please Login to MetaMask",
+                    text: `Error in accessing server`,
                     type: "error", // 'alert', 'success', 'error', 'warning', 'info'
                     layout: "topRight", // Position on the screen
                     timeout: 2000,
                 }).show();
+                return;
             }
-        } catch (error) {
+
+            const data = await response.json();
+            
+            this.setState({
+                organ: data.organ,
+                bloodgroup: data.bloodgroup,
+                matchfound: data.matchFound
+            })
+        }
+        catch {
             new Noty({
                 theme: 'sunset',
-                text: error,
+                text: "Donor not found",
                 type: "error", // 'alert', 'success', 'error', 'warning', 'info'
                 layout: "topRight", // Position on the screen
                 timeout: 2000,
             }).show();
-            console.error('Error:', error);
+
+            this.setState({
+                organ: '',
+                bloodgroup: '',
+                matchfound: ''
+            })
         }
     }
 
@@ -193,5 +154,5 @@ class Donor_login extends Component {
         );
     }
 }
-export default Donor_login;
 
+export default Donor_login;

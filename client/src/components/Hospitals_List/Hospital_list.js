@@ -26,7 +26,7 @@ class HospitalList extends Component {
                 }
                 this.setState({ hospitals });
             })
-            .catch(err => console.log("Error:" + err));
+            .catch(err => console.error("Error:" + err));
     }
 
     renderHospitals() {

@@ -54,12 +54,12 @@ const Top = () => {
                         <Link to="#donate-money" className={`trans nav-link nav-link-ltr ${activeLink === "donate-money" ? "active-link" : ""
                             }`}
                             onClick={() => handleSetActive("donate-money")}>DONATE MONEY</Link>
-                        <Link to="#footer-contact" className={`trans nav-link nav-link-ltr ${activeLink === "transactions" ? "active-link" : ""
+                        <Link to="#footer-contact" className={`trans nav-link nav-link-ltr ${activeLink === "footer-contact" ? "active-link" : ""
                             }`}
                             onClick={() => handleSetActive("footer-contact")}>Partner with us</Link>
                     </Nav>
                     <Nav className="me-auto custom-nav">
-                        <Link to="/Transactions" className={`custom-nav-link ${activeLink === "donate-money" ? "active-link" : ""
+                        <Link to="/Transactions" className={`custom-nav-link ${activeLink === "transactions" ? "active-link" : ""
                             }`}
                             onClick={() => handleSetActive("transactions")}>TRANSPLANT INSIGHTS</Link>
                     </Nav>

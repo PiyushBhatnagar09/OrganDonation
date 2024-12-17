@@ -48,7 +48,6 @@ class ApproveDonor extends Component {
                         axios.get(`${process.env.REACT_APP_API_URL}/api/donors/${email}`)
                             .then(async (res) => {
                                 this.setState({ loading: true });
-                                console.log("res: ", res);
 
                                 const { gender, city, phone, email, organ, bloodgroup } = res.data;
 

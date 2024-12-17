@@ -20,12 +20,11 @@ function Active_Recipients(props) {
 
         // Assuming the response returns an array of recipients
         const matchFoundRecipientsData = data
-          // .filter((recipient) => !recipient.matchFound) // Only recipients without a match
           .map((recipient) => ({
             recipientAddress: recipient.recipient_addr,
-            hospitalId: recipient.hospital_id, // Assuming hospital_id exists in the response
             organ: recipient.organ,
             bloodgroup: recipient.bloodgroup,
+            matchFound: recipient.matchFound
           }));
 
         setMatchFoundRecipients(matchFoundRecipientsData);
@@ -51,9 +50,9 @@ function Active_Recipients(props) {
         <thead>
           <tr>
             <th>Recipient Address</th>
-            <th>Hospital ID</th>
             <th>Organ</th>
             <th>Blood Group</th>
+            <th>Match Found</th>
           </tr>
         </thead>
         <tbody>
@@ -61,9 +60,9 @@ function Active_Recipients(props) {
             matchFoundRecipients.map((recipient, index) => (
               <tr key={index}>
                 <td>{recipient.recipientAddress}</td>
-                <td>{recipient.hospitalId}</td>
                 <td>{recipient.organ}</td>
                 <td>{recipient.bloodgroup}</td>
+                <td>{recipient.matchFound ? "Yes" : "No"}</td>
               </tr>
             ))
           ) : (
