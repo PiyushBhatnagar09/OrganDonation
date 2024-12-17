@@ -97,7 +97,7 @@ Active Donors
 ![Active Donors](https://github.com/user-attachments/assets/eb6578a3-e0ea-46e8-a47d-dc227527a494)
 
 Active Recipients
-![Active Recipients](https://github.com/user-attachments/assets/eb6578a3-e0ea-46e8-a47d-dc227527a494)
+![Active Recipients](https://github.com/PiyushBhatnagar09/OrganDonation/blob/ed70ffe8abcd769f6e1e2803dd92534fad02feb6/assets/%7B472D1AF1-206E-4EAB-8B1A-D7348620DBA3%7D.png)
 
 Transplant Matches
 ![Transplant Matches](https://github.com/user-attachments/assets/eb6578a3-e0ea-46e8-a47d-dc227527a494)
