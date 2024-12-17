@@ -1,0 +1,32 @@
+#donate-money{
+  background-color: rgba(215, 107, 107, 0.1);
+}
+
+#myCarousel {
+  width: 100px; /* Set your desired width */
+  height: 50px; /* Set your desired height */
+  overflow: hidden; /* Ensure images don't overflow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10%;
+  font-size: 15px;
+  font-style: italic;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-transform: capitalize;
+  background-color: rgb(248, 215, 235);
+  max-width: 100%; /* Ensure the container doesn't exceed the viewport width */
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+#myCarousel img {
+  object-fit: cover; /* Ensure images cover the entire container */
+  width: 100%;
+  height: 100%;
+}
+
+#money-donor-heading {
+  text-decoration: underline;
+  text-align: center;
+}

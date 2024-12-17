@@ -1,0 +1,165 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,900,300);
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+#about {
+    background-color: rgba(215, 107, 107, 0.1);
+}
+
+.content {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.rightchild {
+    margin-top: 30px;
+    padding: 10px 10px 10px 10px;
+
+    border: 10px solid transparent;
+    border-radius: 40px 40px 40px 40px;
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.images {
+    display: flex;
+    flex-direction: column;
+}
+
+.image_circle img {
+
+    margin-bottom: 20px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    margin-right: 10px;
+    height: 80%;
+    width: 120%;
+    flex: 1;
+}
+
+.image_circle1 img {
+
+    margin-bottom: 20px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    margin-right: 10px;
+    height: auto;
+    width: 75%;
+    flex: 1;
+
+
+}
+
+.initiate {
+
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 70px;
+    font-weight: 600;
+    background-image: conic-gradient(#553c9a, #ee4b2b, #00c2cb);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    padding: 100px;
+    padding-bottom: 50px;
+}
+
+.list-button {
+    width: 100vw !important;
+    text-align: center !important;
+    padding: 5px;
+}
+
+.facts {
+    font-family: 'Cursive';
+    color: #0c2537;
+    font-size: 15px;
+}
+
+/* CSS */
+.button-71 {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 20px;
+    background-image: linear-gradient(109.6deg, rgba(156, 252, 248, 1) 11.2%, rgba(110, 123, 251, 1) 91.1%);
+    border: 0;
+    border-radius: 56px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: system-ui, -apple-system, system-ui, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    outline: 0;
+    padding: 16px 21px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-71:before {
+    background-color: initial;
+    background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+    border-radius: 125px;
+    content: "";
+    height: 50%;
+    left: 4%;
+    opacity: .5;
+    position: absolute;
+    top: 0;
+    transition: all .3s;
+    width: 92%;
+}
+
+.button-71:hover {
+    box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+    transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+    .button-71 {
+        padding: 16px 48px;
+    }
+}
+
+.second {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.second h1 {
+    font-size: 50px;
+    font-family: 'Lato';
+}
+
+h1.second {
+    font-weight: 350;
+}
+
+h1.second span {
+    position: relative;
+    display: inline-block;
+    padding: 20px 10px 10px 10px;
+    border-radius: 10px;
+    border-bottom: 1px solid mediumseagreen;
+}
+
+h1.second span:after {
+    content: '';
+    position: absolute;
+    bottom: calc(-100% - 1px);
+    margin-left: -10px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border-top: 1px solid mediumseagreen;
+}

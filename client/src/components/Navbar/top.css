@@ -1,0 +1,64 @@
+/* Top.css */
+
+.login-nav {
+    display: flex;
+    align-items: center;
+}
+
+.buttn {
+    background-color: lightpink;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    text-align: center;
+}
+
+/* Add any additional styling as needed */
+
+.fixed-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Adjust the z-index as needed */
+    /* Add any other styles for the fixed navbar */
+}
+
+.navBackground {
+    background-color: rgba(164, 163, 163, 0.76);
+}
+
+.active-link {
+    color: rgb(27, 27, 229)
+        /* Highlighted color for the active link */
+        !important;
+    font-weight: bold;
+}
+
+.custom-nav-link {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: bold;
+    color: white;
+    background-image: linear-gradient(to right, rgba(0, 0, 255, 0.815), rgba(65, 105, 225, 0.766));
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 5px;
+
+    border-radius: 10rem;
+
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  }
+  
+  .custom-nav-link:hover {
+    background-image: linear-gradient(to right, rgb(0, 0, 255), rgb(65, 105, 225));
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Shadow effect */
+  }
+  
+  .custom-nav-link.active-link {
+    background-image: linear-gradient(to right, blue, royalblue);
+    border-color: lightblue;
+  }
+  
