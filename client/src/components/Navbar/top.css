@@ -48,7 +48,10 @@
     border-radius: 10rem;
 
     text-decoration: none;
+    text-align: center;
     transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+
+    margin: 10px;
   }
   
   .custom-nav-link:hover {
