@@ -2,7 +2,7 @@
 
 This project is a **blockchain-integrated platform** designed to streamline and secure the organ donation and transplant process. It connects **donors**, **recipients**, and **hospitals**, ensuring transparency and efficiency. The system leverages **MongoDB** for fast and easy data access while storing critical data on the blockchain for security and immutability. **MetaMask is not required** for most user interactions, making the platform accessible to a wider audience.
 
-![Home Page](https://github.com/user-attachments/assets/949d06d3-7352-4780-875a-f09e36358282)
+![home_page](https://github.com/user-attachments/assets/04ce7024-3e1a-4558-bfe2-067e9b534d07)
 
 ## Table of Contents
 - [Features](#features)
@@ -60,54 +60,56 @@ Users can view:
 
 Donors need to enter their details like name, email, password, gender, blood group, city, organ.
 
-![Donor Signup Page](https://github.com/user-attachments/assets/949d06d3-7352-4780-875a-f09e36358282)
+![donor_signup](https://github.com/user-attachments/assets/da6a7b9f-b95c-4413-acc8-991a19d3727f)
 
 ### Hospital Login
 
 Hospitals can login with their unique credentials.
 
-![Hospital Login Page](https://github.com/user-attachments/assets/949d06d3-7352-4780-875a-f09e36358282)
+![hospital_login](https://github.com/user-attachments/assets/f5756772-e621-468b-9a9b-6b3b88c7eba4)
 
 ### Approve Donor
 
 Hospitals need to verify the Donor using his/her aadhar number and email.
 Now, Donor details will be stored in Blockchain and also updated in MongoDB database.
 
-![Approve Donor](https://github.com/user-attachments/assets/0ef89cfd-6515-40f3-bdff-1c9bf7e86f58)
+![approve_donor](https://github.com/user-attachments/assets/233d9713-818f-4b93-aba5-5d2e509ec58c)
 
 ### Recipient Registration
 
 Hospitals need to register details of recipient by giving their demographic details and bloodgroup, organ details.
 Now, Recipient details will be stored in Blockchain and also updated in MongoDB database.
 
-![Recipient Registration](https://github.com/user-attachments/assets/c6251abf-a42e-4c55-8ddf-9a289175dc0a)
+![recipient_register](https://github.com/user-attachments/assets/108ee5ae-3cc4-4181-bfdd-8204141fe0fe)
 
 ### Transplant Match
 
 Hospitals can do transplant match to find matching donors for recipients. 
 Transplant match details will also be stored in Blockchain and updated in MongoDB database.
 
-![Transplant Match](https://github.com/user-attachments/assets/fe1ed75d-ab8d-40a5-8faa-0a38b4203793)
+![transplant](https://github.com/user-attachments/assets/2cdddf14-37d6-4f9e-93a2-c88c9faf1526)
+![transplant_success](https://github.com/user-attachments/assets/0607489f-585f-44d7-a640-e0261565119c)
 
 ### Transplant Insights
 
 Users can view active donors, active recipients and transplant matches details on Transplant Insights page.
 
 Active Donors
-![Active Donors](https://github.com/user-attachments/assets/eb6578a3-e0ea-46e8-a47d-dc227527a494)
+![active_donors](https://github.com/user-attachments/assets/2bb47b66-68fd-408e-bc35-ffdae723b88c)
 
 Active Recipients
-![Active Recipients](https://github.com/PiyushBhatnagar09/OrganDonation/blob/ed70ffe8abcd769f6e1e2803dd92534fad02feb6/assets/%7B472D1AF1-206E-4EAB-8B1A-D7348620DBA3%7D.png)
+![active_recipients](https://github.com/user-attachments/assets/2899f44b-7195-4771-ad5d-7efbe7b8df38)
 
 Transplant Matches
-![Transplant Matches](https://github.com/user-attachments/assets/eb6578a3-e0ea-46e8-a47d-dc227527a494)
+![transplant_matches](https://github.com/user-attachments/assets/2640a9cf-ea11-44a8-91c6-c74b918e701d)
 
 
 ### Money Donation
 
 Users can also donate money using Razorpay test mode.
 
-![Money Donation](https://github.com/user-attachments/assets/d1d8cc47-6c95-4040-8398-0e043b9a81f4)
+![money_donation](https://github.com/user-attachments/assets/daf3124e-2bc1-4eac-bf7b-a3cac5e2b32e)
+![razorpay](https://github.com/user-attachments/assets/83550f9f-1e4e-4fc5-9e66-4de7ab5102fb)
 
 ## Usage
 
