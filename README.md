@@ -1,4 +1,4 @@
-![money_donation](https://github.com/user-attachments/assets/792b7fa6-c6ca-4877-a686-a72d17e5d45a)# Organ Donation and Transplant Management System
+# Organ Donation and Transplant Management System
 
 This project is a **blockchain-integrated platform** designed to streamline and secure the organ donation and transplant process. It connects **donors**, **recipients**, and **hospitals**, ensuring transparency and efficiency. The system leverages **MongoDB** for fast and easy data access while storing critical data on the blockchain for security and immutability. **MetaMask is not required** for most user interactions, making the platform accessible to a wider audience.
 
