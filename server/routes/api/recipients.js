@@ -11,8 +11,6 @@ router.route('/').get( async (req, res) => {
 });
 
 router.route('/').post(async (req, res) => {
-    console.log("here");
-    console.log(req.body);
     await Recipient.create({
         fname: req.body.fname.toLowerCase(),
         lname: req.body.lname.toLowerCase(),

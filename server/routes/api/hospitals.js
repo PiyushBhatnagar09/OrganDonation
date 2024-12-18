@@ -23,7 +23,6 @@ router.route('/login').post((req, res) => {
     const { username, password } = req.body;
     Hospital.findOne({ username })
         .then(hospital => {
-            console.log(hospital.password);
             if (!hospital) 
                 return res.status(400).json({ msg: 'User does not exist' });
             if (hospital.password != hashData(password)) 

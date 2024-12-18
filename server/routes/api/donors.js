@@ -18,7 +18,6 @@ router.route('/:email').get((req, res) => {
 });
 
 router.route('/donor_info').post((req, res) => {
-    console.log("heyyy")
     Donor.findOne({
         donor_addr: req.body.donor_addr
     })
