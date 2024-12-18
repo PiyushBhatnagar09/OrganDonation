@@ -59,10 +59,12 @@ function Active_Recipients(props) {
           {matchFoundRecipients.length > 0 ? (
             matchFoundRecipients.map((recipient, index) => (
               <tr key={index}>
-                <td>{recipient.recipientAddress}</td>
-                <td>{recipient.organ}</td>
-                <td>{recipient.bloodgroup}</td>
-                <td>{recipient.matchFound ? "Yes" : "No"}</td>
+                <td data-label="Recipient Address">
+                  <div className="scrollable-text">{recipient.recipientAddress}</div>
+                </td>
+                <td data-label="Organ">{recipient.organ}</td>
+                <td data-label="Bloodgroup">{recipient.bloodgroup}</td>
+                <td data-label="MatchFound">{recipient.matchFound ? "Yes" : "No"}</td>
               </tr>
             ))
           ) : (

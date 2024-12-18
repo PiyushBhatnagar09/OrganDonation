@@ -43,3 +43,84 @@
     color: #888;
   }
   
+  .section {
+    padding: 20px;
+  }
+  
+  .table-container {
+    overflow-x: auto; /* Enables horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  
+  thead {
+    background-color: #f4f4f4;
+  }
+  
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    word-wrap: break-word; /* Prevent long text from breaking layout */
+  }
+  
+  th {
+    font-weight: bold;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    th, td {
+      font-size: 14px;
+      padding: 8px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+  
+    thead tr {
+      display: none; /* Hide table headers */
+    }
+  
+    tr {
+      margin-bottom: 10px;
+    }
+  
+    td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: none;
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+  
+    td:before {
+      content: attr(data-label);
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-right: 10px;
+    }
+  }
+
+  .scrollable-text {
+    max-width: 400px; /* Set a maximum width for the text */
+    white-space: nowrap; /* Prevent wrapping */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on mobile devices */
+    border: 1px solid #ddd; /* Optional: Add a border to visually differentiate the field */
+    padding: 5px; /* Optional: Add padding for better readability */
+  }
+  

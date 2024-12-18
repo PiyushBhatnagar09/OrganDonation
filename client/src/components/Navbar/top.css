@@ -65,3 +65,29 @@
     border-color: lightblue;
   }
   
+  /* Ensure navbar items wrap properly on smaller screens */
+.navBackground {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap when they don't fit */
+    align-items: center;
+}
+
+/* Style adjustments for the "Login/Signup" button */
+.login-nav .buttn {
+    white-space: nowrap; /* Prevent text wrapping */
+    padding: 0.5rem 1rem;
+    max-width: 140px; /* Limit button width */
+    text-align: center;
+}
+
+/* Media queries for smaller screens */
+@media (max-width: 768px) {
+    .navBackground {
+        flex-direction: column; /* Stack navbar items vertically */
+        text-align: center;
+    }
+
+    .login-nav {
+        margin-top: 10px; /* Add spacing for the button */
+    }
+}

@@ -60,11 +60,15 @@ function Active_Donors(props) {
           {activeDonors.length > 0 ? (
             activeDonors.map((donor, index) => (
               <tr key={index}>
-                <td>{donor.donorAddress}</td>
-                <td>{donor.organ}</td>
-                <td>{donor.bloodgroup}</td>
-                <td>{donor.recipientId}</td>
-                <td>{donor.matchFound ? "Yes" : "No"}</td>
+                <td data-label="Donor Address">
+                  <div className="scrollable-text">{donor.donorAddress}</div>
+                </td>
+                <td data-label="Organ">{donor.organ}</td>
+                <td data-label="Bloodgroup">{donor.bloodgroup}</td>
+                <td data-label="Recipient Address">
+                  <div className="scrollable-text">{donor.recipientId}</div>
+                </td>
+                <td data-label="MatchFound">{donor.matchFound ? "Yes" : "No"}</td>
               </tr>
             ))
           ) : (

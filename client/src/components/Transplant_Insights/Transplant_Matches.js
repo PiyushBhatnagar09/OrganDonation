@@ -52,9 +52,13 @@ function Transplant_Matches() {
           {successfulTransplants.length > 0 ? (
             successfulTransplants.map((transplant, index) => (
               <tr key={index}>
-                <td>{transplant.donor}</td>
-                <td>{transplant.recipient}</td>
-                <td>{new Date(transplant.timestamp).toLocaleString()}</td>
+                <td data-label="Donor Address">
+                  <div className="scrollable-text">{transplant.donor}</div>
+                </td>
+                <td data-label="Recipient Address">
+                  <div className="scrollable-text">{transplant.recipient}</div>
+                </td>
+                <td data-label="Date">{new Date(transplant.timestamp).toLocaleString()}</td>
               </tr>
             ))
           ) : (

@@ -315,3 +315,13 @@ span:nth-child(26) {
 .buttn:hover:before {
     width: 100%;
 }
+
+.scrollable-text1 {
+    /* max-width: 1000px; */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on mobile devices */
+    /* border: 1px solid #ddd; Optional: Add a border to visually differentiate the field */
+    padding: 5px; /* Optional: Add padding for better readability */
+    text-align: center;
+  }

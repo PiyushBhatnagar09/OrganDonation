@@ -9,7 +9,9 @@ const Corous = (props) => {
             className="text-muted lead"
             style={{ borderRadius: "15px", padding: "5px", marginTop: "10px", marginLeft: "5px", backgroundColor: "lightgreen", textAlign: "center", fontWeight: "bold" }}
         >
-            <small>Meta Mask Connected Account - {props.account}</small>
+            <small>
+                <div className="scrollable-text1">Meta Mask Connected Account - {props.account}</div>
+            </small>
         </p>
             <div className="con">
                 <div className="container1" id="courous">

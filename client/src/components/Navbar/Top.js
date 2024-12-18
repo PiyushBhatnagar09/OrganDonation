@@ -35,7 +35,7 @@ const Top = () => {
     return (
         <Navbar
             bg=""  // Set the background color to "primary" or another desired color
-            className={navbarClass}
+            className={`${navbarClass} flex-wrap`}
             expand="md"
         >
             <Container>
@@ -63,7 +63,7 @@ const Top = () => {
                             }`}
                             onClick={() => handleSetActive("transactions")}>TRANSPLANT INSIGHTS</Link>
                     </Nav>
-                    <Nav className="login-nav">
+                    <Nav className="me-auto login-nav">
                         <Link
                             to="/Donor_login"
                             className='buttn nav-link'
