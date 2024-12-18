@@ -1,4 +1,4 @@
-# Organ Donation and Transplant Management System
+![money_donation](https://github.com/user-attachments/assets/792b7fa6-c6ca-4877-a686-a72d17e5d45a)# Organ Donation and Transplant Management System
 
 This project is a **blockchain-integrated platform** designed to streamline and secure the organ donation and transplant process. It connects **donors**, **recipients**, and **hospitals**, ensuring transparency and efficiency. The system leverages **MongoDB** for fast and easy data access while storing critical data on the blockchain for security and immutability. **MetaMask is not required** for most user interactions, making the platform accessible to a wider audience.
 
@@ -23,14 +23,20 @@ This project is a **blockchain-integrated platform** designed to streamline and 
 - Donors can register on the platform without the need for MetaMask or blockchain knowledge.
 - Donor data is stored on the blockchain and replicated in MongoDB for faster access.
 
+![donor_signup](https://github.com/user-attachments/assets/4f7d6265-9649-499f-a292-e385aa371c06)
+
 ### 2. **Donor Status Check**
 - Donors can check their registration and donation status without needing MetaMask.
+
+![donor_info](https://github.com/user-attachments/assets/ae53194b-fc8d-4127-a3cb-7be95eab73fe)
 
 ### 3. **Transplant Insights**
 Users can view:
 - **Active Donors**: Total donors available.
 - **Active Recipients**: Individuals in need of organ transplants.
 - **Transplant Matches**: Match data between donors and recipients.
+
+![transplant_matches](https://github.com/user-attachments/assets/e764c52e-4e83-4337-8c22-3e2fa5324a95)
 
 > **Note:** All transplant-related data is first stored on the blockchain for transparency and then added to MongoDB for easy access.
 
@@ -41,9 +47,13 @@ Users can view:
   - **Register Recipients**: Add recipients who need organs.
   - **Check Transplant Matches**: View potential matches between donors and recipients.
 
+![hospital_portal](https://github.com/user-attachments/assets/7ebd265b-08de-4ea9-be03-cc58225036a4)
+
 ### 5. **Donation with Razorpay**
 - Users can donate money through **Razorpay** (test mode).
 - The names of monetary donors are displayed on the website to inspire and motivate others.
+
+![money_donation](https://github.com/user-attachments/assets/456bf141-af45-4207-b90e-9c20ea3ba93d)
 
 ## Technologies Used
 
