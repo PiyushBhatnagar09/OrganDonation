@@ -58,10 +58,8 @@ const Top = () => {
                             }`}
                             onClick={() => handleSetActive("footer-contact")}>Partner with us</Link>
                     </Nav>
-                    <Nav className="me-auto custom-nav">
-                        <Link to="/Transactions" className={`custom-nav-link ${activeLink === "transactions" ? "active-link" : ""
-                            }`}
-                            onClick={() => handleSetActive("transactions")}>TRANSPLANT INSIGHTS</Link>
+                    <Nav className="me-auto button-85">
+                        <Link style={{'color': 'white'}} to="/Transactions" onClick={() => handleSetActive("transactions")}>TRANSPLANT INSIGHTS</Link>
                     </Nav>
                     <Nav className="me-auto login-nav">
                         <Link
