@@ -45,7 +45,7 @@ function Transplant_Matches() {
           <tr>
             <th>Donor Address</th>
             <th>Recipient Address</th>
-            <th>Transplant Date</th>
+            <th>Date</th>
           </tr>
         </thead>
         <tbody>

@@ -71,9 +71,9 @@ const Testimonials = () => {
           </div>
         ))}
       </div>
-      <div className="expand-icon">
-        <FontAwesomeIcon icon={faChevronDown} />
-      </div>
+      {/* <div className="expand-icon"> */}
+        {/* <FontAwesomeIcon icon={faChevronDown} /> */}
+      {/* </div> */}
     </section>
   );
 };

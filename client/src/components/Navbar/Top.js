@@ -57,10 +57,11 @@ const Top = () => {
                         <Link to="#footer-contact" className={`trans nav-link nav-link-ltr ${activeLink === "footer-contact" ? "active-link" : ""
                             }`}
                             onClick={() => handleSetActive("footer-contact")}>Partner with us</Link>
+                        <Link to="/Transactions" className={`trans nav-link nav-link-ltr ${activeLink === "transactions" ? "active-link" : ""
+                            }`}
+                            onClick={() => handleSetActive("transactions")}>TRANSPLANT INSIGHTS</Link>
                     </Nav>
-                    <Nav className="me-auto button-85">
-                        <Link style={{'color': 'white'}} to="/Transactions" onClick={() => handleSetActive("transactions")}>TRANSPLANT INSIGHTS</Link>
-                    </Nav>
+                
                     <Nav className="me-auto login-nav">
                         <Link
                             to="/Donor_login"

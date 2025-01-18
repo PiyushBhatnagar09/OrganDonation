@@ -75,7 +75,7 @@
 /* Style adjustments for the "Login/Signup" button */
 .login-nav .buttn {
     white-space: nowrap; /* Prevent text wrapping */
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1rem;
     max-width: 140px; /* Limit button width */
     text-align: center;
 }
@@ -90,76 +90,4 @@
     .login-nav {
         margin-top: 10px; /* Add spacing for the button */
     }
-}
-
-.button-85 {
-    padding: 0.6em 2em;
-    border: none;
-    outline: none;
-    color: white !important;
-    background: linear-gradient(to right, rgba(0, 0, 255, 0.815), rgba(65, 105, 225, 0.766));
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 15px;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    max-width: min-content;
-    text-align: center;
-    font-style: italic;
-    font-family:'Times New Roman', Times, serif;
-    font-weight: bold;
-}
-
-.button-85:before {
-    content: "";
-    background: linear-gradient(45deg,
-            #ff0000,
-            #ff7300,
-            #fffb00,
-            #48ff00,
-            #00ffd5,
-            #002bff,
-            #7a00ff,
-            #ff00c8,
-            #ff0000);
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    -webkit-filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing-button-85 20s linear infinite;
-    transition: opacity 0.3s ease-in-out;
-    border-radius: 10px;
-}
-
-@keyframes glowing-button-85 {
-    0% {
-        background-position: 0 0;
-    }
-
-    50% {
-        background-position: 400% 0;
-    }
-
-    100% {
-        background-position: 0 0;
-    }
-}
-
-.button-85:after {
-    z-index: -1;
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 255, 0.815), rgba(65, 105, 225, 0.766));
-    left: 0;
-    top: 0;
-    border-radius: 10px;
 }

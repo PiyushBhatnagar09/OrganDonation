@@ -104,14 +104,13 @@ class Donor_login extends Component {
                             <div class="row gx-lg-5 align-items-center">
                                 <div class="col-lg-6 mb-5 mb-lg-0">
                                     <h1 class="my-5 display-3 fw-bold ls-tight">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <span class="text-primary">Check Donor Info and Status</span>
+                                        {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
+                                        {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; */}
+                                        <span class="text-primary">Check Donor Details</span>
                                     </h1>
                                     <p style={{ color: "hsl(217, 10%, 50.8%)" }}>
-                                    "I used to overlook the importance of organ donation, but now I am incredibly grateful for it. As it happens, I found myself in need, and I sincerely hope that my donor's family receives blessings a thousandfold for their selfless sacrifice." –Karl Black
+                                    "Organ donation is the ultimate act of kindness. It transformed my life when I needed it most, and I can never thank my donor and their family enough for their priceless gift."                                    
                                     </p>
-
                                 </div>
 
                                 <div class="col-lg-6 mb-5 mb-lg-0">
@@ -137,14 +136,16 @@ class Donor_login extends Component {
                 </section>
 
                 {this.state.organ && this.state.organ.length >= 1 ?
-                    <div class="alert alert col-md donor_id mx-auto" style={{ marginLeft: "40px", marginRight: "40px" }} role="alert">
-                        <h4 class="alert-heading" style={{ textAlign: "center", fontSize: "3em", color: "#2c3e50" }}>Donor Information </h4>
-                        <div class="card " style={{ maxWidth: "500px", margin: "auto" }}>
-                            <div class="card-body mx-auto">
-                                <h3 class="card-subtitle mb-2 text-muted" style={{ color: "#34495e" }}>Organ Donated: {this.state.organ}</h3>
-                                <h3 class="card-subtitle mb-2 text-muted" style={{ color: "#34495e" }}>Blood Group: {this.state.bloodgroup}</h3>
-                                <h3 class="card-subtitle mb-2 text-muted" style={{ color: "#34495e" }}>Match Found: {this.state.matchfound === true ? `Yes` : `No`}</h3>
-                                <h3 class="card-subtitle mb-2 text-muted" style={{ color: "#34495e" }}>Recipient ID: {this.state.matchfound === true ? `${this.state.recipientId}` : ``}</h3>
+                    <div className="alert alert col-md donor_id mx-auto" role="alert">
+                        <h4 className="alert-heading">Donor Information</h4>
+                        <div className="card">
+                            <div className="card-body mx-auto">
+                                <h3 className="card-subtitle mb-2">Organ Donated: {this.state.organ}</h3>
+                                <h3 className="card-subtitle mb-2">Blood Group: {this.state.bloodgroup}</h3>
+                                <h3 className="card-subtitle mb-2">Match Found: {this.state.matchfound === true ? `Yes` : `No`}</h3>
+                                <h3 className="card-subtitle mb-2">
+                                    Recipient ID: {this.state.matchfound === true ? `${this.state.recipientId}` : ``}
+                                </h3>
                             </div>
                         </div>
                     </div>

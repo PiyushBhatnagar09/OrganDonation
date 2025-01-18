@@ -38,7 +38,7 @@ const About = () => {
             <br></br>
             <div className="initiate">
                 <p>
-                To be a part of this initiative
+                    Become a part of this Initiative
                 </p>
             </div>
             <div className="list-button">

@@ -2,6 +2,10 @@
     text-align: center;
     padding: 40px 60px;
     background-color: #f8f8f8;
+    min-height: 100vh; /* Ensure the section takes up full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically centers the content */
 }
 
 .testimonials-heading {

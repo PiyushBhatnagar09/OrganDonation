@@ -25,3 +25,39 @@
         transform: scale(1);
     }
 }
+
+.alert {
+    background-color: #f8f9fa; /* Soft light background */
+    border: 1px solid #dee2e6; /* Light border for elegance */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Space inside the alert box */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.alert-heading {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #2c3e50; /* Dark, professional color */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.card {
+    max-width: 600px;
+    margin: 20px auto 54px; /* Center the card horizontally */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Smooth edges */
+    background-color: #ffffff; /* White background for contrast */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for subtle depth */
+}
+
+.card-body {
+    padding: 15px; /* Add space around the content */
+}
+
+.card-subtitle {
+    font-size: 1.2em;
+    color: #34495e; /* Muted dark tone for text */
+    margin-bottom: 10px; /* Space between subtitles */
+    text-align: center; /* Align text in the center */
+}
